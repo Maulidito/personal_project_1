@@ -16,3 +16,10 @@ a {
 .card-title {
   text-transform: capitalize;
 }
+
+.success-image {
+  width: 50%;
+  height: 50%;
+  align-self: center;
+  padding-bottom: 50px;
+}

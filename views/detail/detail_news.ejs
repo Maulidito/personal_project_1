@@ -1,0 +1,13 @@
+<%- include('../templates/header')-%>
+
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider" />
+<% let file = null %> <% if (number==1){ file = 'detail_news_content1' } %> <%
+if (number==2){ file = 'detail_news_content2' } %> <%- include(file)-%>
+
+<hr class="featurette-divider" />
+
+<!-- /END THE FEATURETTES -->
+
+<%- include('../templates/footer')-%>

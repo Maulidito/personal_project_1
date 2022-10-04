@@ -1,5 +1,5 @@
 <%- include('templates/header')-%>
-<form action="/add-news" method="post">
+<form action="/edit-news" method="post">
   <div class="mb-3">
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>
@@ -8,6 +8,7 @@
         class="form-control"
         id="title"
         name="title"
+        value="<%=title %>"
         aria-describedby="emailHelp"
         placeholder="Enter Title"
       />
@@ -18,17 +19,23 @@
       <label for="exampleInputPassword1">Description</label>
       <textarea
         class="form-control"
-        id="exampleFormControlTextarea1"
+        id="desc"
+        name="desc"
         rows="3"
         placeholder="Enter Description"
-      ></textarea>
+      >
+<%= description %></textarea
+      >
     </div>
   </div>
 
   <div class="mb-3">
     <label for="formFile" class="form-label">Upload Thumbnail Image</label>
-    <input class="form-control" type="file" id="formFile" />
+    <input class="form-control" type="file" id="file" name="file" />
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
+
 <%- include('templates/footer')-%>

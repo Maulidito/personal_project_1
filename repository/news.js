@@ -10,7 +10,15 @@ module.exports = class NewsRepository {
   }
 
   async Add(data) {
-    let res = await this.db.create({ ...data });
+    let res = null;
+
+    res = await this.db.create({ ...data });
+
+    return res;
+  }
+
+  async GetOne(id) {
+    let res = await this.db.findOne({ where: { id } });
 
     return res;
   }
