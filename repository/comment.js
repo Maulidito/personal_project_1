@@ -4,13 +4,29 @@ module.exports = class CommentRepository {
   }
 
   async getAll() {
-    let res = await this.db.findAll();
+    let res = await this.db.findAll({
+      where: { DeleteAt: null },
+    });
 
     return res;
   }
 
   async getAllSpecificNews(newsId) {
-    let res = await this.db.findAll({ where: { news_fk: newsId } });
+    let res = await this.db.findAll({
+      where: { news_fk: newsId, DeleteAt: null },
+    });
+
+    return res;
+  }
+
+  async getAllTopSpecificNews(newsId) {
+    let res = await this.db.findAll({
+      where: {
+        news_fk: newsId,
+        comment_tree_fk: null,
+        DeleteAt: null,
+      },
+    });
 
     return res;
   }
@@ -32,7 +48,10 @@ module.exports = class CommentRepository {
   }
 
   async Update(data) {
-    let res = await this.db.update({ ...data }, { where: { id: data.id } });
+    let res = await this.db.update(
+      { ...data },
+      { where: { id: data.id, DeleteAt: null } }
+    );
 
     return res;
   }

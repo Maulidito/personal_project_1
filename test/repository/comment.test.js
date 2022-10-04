@@ -11,7 +11,7 @@ test("should Get All Comment", async () => {
   const data = await repoComment.getAll();
 });
 
-test("Add data Comment to database", async () => {
+test.skip("Add data Comment to database", async () => {
   const dataComment = {
     content: "test",
     news_fk: "052c68ec-d51f-4beb-a44c-5e32b6afe35f",
@@ -20,7 +20,7 @@ test("Add data Comment to database", async () => {
   temporaryData = data;
 });
 
-test("Add data Tree Comment to database", async () => {
+test.skip("Add data Tree Comment to database", async () => {
   const dataComment = {
     content: "test",
     news_fk: "052c68ec-d51f-4beb-a44c-5e32b6afe35f",
@@ -30,7 +30,7 @@ test("Add data Tree Comment to database", async () => {
   temporaryData = data;
 });
 
-test("Update Data database", async () => {
+test.skip("Update Data database", async () => {
   let dataNew = {
     ...temporaryData.dataValues,
     title: "testUbah",
@@ -44,8 +44,15 @@ test.skip("Delete Data database", async () => {
   console.log("TEST4", data);
 });
 
-test("Get Comment specific Data", async () => {
+test.skip("Get Comment specific Data", async () => {
   const data = await repoComment.getAllSpecificNews(
     "052c68ec-d51f-4beb-a44c-5e32b6afe35f"
   );
+});
+
+test("Get TOP Comment specific Data", async () => {
+  const data = await repoComment.getAllTopSpecificNews(
+    "052c68ec-d51f-4beb-a44c-5e32b6afe35f"
+  );
+  console.log("TOP COMMENT", data);
 });

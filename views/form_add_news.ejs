@@ -1,5 +1,5 @@
 <%- include('templates/header')-%>
-<form action="/add-news" method="post">
+<form action="/add-news" method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>
@@ -10,6 +10,7 @@
         name="title"
         aria-describedby="emailHelp"
         placeholder="Enter Title"
+        required
       />
     </div>
   </div>
@@ -22,6 +23,7 @@
         name="desc"
         rows="3"
         placeholder="Enter Description"
+        required
       ></textarea>
     </div>
   </div>

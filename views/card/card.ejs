@@ -21,17 +21,24 @@
         <div class="btn-group">
           <a
             type="button"
-            class="btn btn-sm btn-outline-secondary"
+            class="btn btn-sm btn-outline-primary"
             href="/view-news/<%= data.id %>"
           >
             View
           </a>
           <a
             type="button"
-            class="btn btn-sm btn-outline-secondary"
+            class="btn btn-sm btn-outline-warning"
             href="/edit-news/<%= data.id %>"
           >
             Edit
+          </a>
+          <a
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+            href="/delete-news/<%= data.id %>"
+          >
+            Delete
           </a>
         </div>
         <small class="text-muted"><%= data.countComment %> commented</small>

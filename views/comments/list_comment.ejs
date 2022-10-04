@@ -1,0 +1,46 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container bootdey">
+  <div class="col-md-12 bootstrap snippets">
+    <div class="panel">
+      <div class="panel-body">
+        <form action="/add-comment/<%=id_news%>" method="post">
+          <textarea
+            class="form-control"
+            rows="2"
+            placeholder="What are you thinking?"
+            id="content"
+            name="content"
+            required
+          ></textarea>
+          <div class="mar-top clearfix">
+            <input
+              class="btn btn-sm btn-primary pull-right"
+              type="submit"
+              value="Share"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-body">
+        <!-- Newsfeed Content -->
+        <!--===================================================-->
+        <% for(var i = 0; i < data_comment.length; i++) { %>
+        <%-include('comment_top', {data:data_comment[i].dataValues})-%> <% } %>
+
+        <!--===================================================-->
+        <!-- End Newsfeed Content -->
+
+        <!-- Newsfeed Content -->
+        <!--===================================================-->
+
+        <!--===================================================-->
+        <!-- End Newsfeed Content -->
+      </div>
+    </div>
+  </div>
+</div>

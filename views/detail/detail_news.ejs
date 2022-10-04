@@ -1,13 +1,17 @@
 <%- include('../templates/header')-%>
 
 <!-- START THE FEATURETTES -->
-
+<div class="text-start">
+  <a type="button" class="btn btn-outline-primary" href="/">back</a>
+</div>
 <hr class="featurette-divider" />
+
 <% let file = null %> <% if (number==1){ file = 'detail_news_content1' } %> <%
-if (number==2){ file = 'detail_news_content2' } %> <%- include(file)-%>
-
-<hr class="featurette-divider" />
+if (number==2){ file = 'detail_news_content2' } %> <%-
+include(file,{title,description})-%> <%-
+include('../comments/list_comment',{data_comment,id_news:id})-%>
 
 <!-- /END THE FEATURETTES -->
 
+<br />
 <%- include('../templates/footer')-%>

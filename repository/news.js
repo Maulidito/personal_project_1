@@ -4,7 +4,10 @@ module.exports = class NewsRepository {
   }
 
   async getAll() {
-    let res = await this.db.findAll();
+    let res = await this.db.findAll({
+      order: [["createdAt", "DESC"]],
+      where: { DeleteAt: null },
+    });
 
     return res;
   }
@@ -18,7 +21,9 @@ module.exports = class NewsRepository {
   }
 
   async GetOne(id) {
-    let res = await this.db.findOne({ where: { id } });
+    let res = await this.db.findOne({
+      where: { id, DeleteAt: null },
+    });
 
     return res;
   }
@@ -34,7 +39,10 @@ module.exports = class NewsRepository {
   }
 
   async Update(data) {
-    let res = await this.db.update({ ...data }, { where: { id: data.id } });
+    let res = await this.db.update(
+      { ...data },
+      { where: { id: data.id, DeleteAt: null } }
+    );
 
     return res;
   }
