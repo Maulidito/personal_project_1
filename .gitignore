@@ -105,3 +105,5 @@ dist
 
 # Custom
 package-lock.json
+public/uploads/images/*
+cert/*

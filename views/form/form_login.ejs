@@ -1,0 +1,41 @@
+<%- include('../templates/header')-%>
+<div class="mb-3">
+  <h3>Login</h3>
+</div>
+<form action="/user" method="post">
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        aria-describedby="emailHelp"
+        placeholder="Enter Email"
+        required
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        class="form-control"
+        id="pass"
+        name="pass"
+        rows="3"
+        placeholder="Enter password"
+        type="password"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <a href="/user/regis">dont have an account? regis now</a>
+</form>
+
+<%- include('../templates/footer')-%>

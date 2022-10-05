@@ -3,23 +3,28 @@
 </div>
 <p class="p_comment"><%=data.content%></p>
 <div class="pad-ver">
-  <form>
+  <form action="/add-comment/<%=id_news%>" method="post">
     <div class="form-group col-sm">
       <input
-        type="email"
+        type="text"
         class="form-control"
-        id="comment"
-        name="comment"
+        id="content"
+        name="content"
         aria-describedby="emailHelp"
         placeholder="write comment"
       />
     </div>
     <input
+      type="hidden"
       class="btn btn-sm btn-default btn-hover-primary"
-      href="#"
+      value="<%=data.id%>"
+      id="comment_tree_fk"
+      name="comment_tree_fk"
+    />
+    <input
+      class="btn btn-sm btn-default btn-hover-primary"
+      type="submit"
       value="Write Comment"
     />
-
-    <a class="btn btn-sm btn-default btn-hover-primary" href="#">See Comment</a>
   </form>
 </div>

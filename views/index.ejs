@@ -80,9 +80,17 @@
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">News</h1>
+            <% if(user!=undefined){%>
+               <h3 class="fw-light">Welcome <%=user.email%></h3>
+            <%}%>
+            
             <p class="lead text-muted">Updated and verified news</p>
+        
             <p>
-              <a href="#" class="btn btn-primary my-2">Login</a>
+              <a href="/user" class="btn btn-primary my-2">Login</a>
+              <% if(user!=undefined){%>
+                <a href="/user/logout" class="btn btn-danger my-2">Logout</a>
+             <%}%>
               <a href="/add-news" class="btn btn-outline-primary my-2" >Add News</a>              
             </p>
           </div>

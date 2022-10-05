@@ -8,7 +8,7 @@
 
 <% let file = null %> <% if (number==1){ file = 'detail_news_content1' } %> <%
 if (number==2){ file = 'detail_news_content2' } %> <%-
-include(file,{title,description})-%> <%-
+include(file,{title,description,image})-%> <%-
 include('../comments/list_comment',{data_comment,id_news:id})-%>
 
 <!-- /END THE FEATURETTES -->

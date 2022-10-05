@@ -27,6 +27,7 @@ const BaseModel = {
 
 const news = require("./news")(sequelize, BaseModel);
 const comment = require("./comment")(sequelize, BaseModel);
+const user = require("./user")(sequelize, BaseModel);
 
 news.hasMany(comment, {
   onDelete: "RESTRICT",
@@ -40,11 +41,18 @@ comment.hasOne(comment, {
   foreignKey: "comment_tree_fk",
 });
 
+user.hasMany(comment, {
+  onDelete: "RESTRICT",
+  onUpdate: "RESTRICT",
+  foreignKey: "comment_user_fk",
+});
+
 const Model = {
   Sequelize,
   sequelize,
   news,
   comment,
+  user,
 };
 
 module.exports = Model;

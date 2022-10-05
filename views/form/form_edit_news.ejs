@@ -1,5 +1,5 @@
-<%- include('templates/header')-%>
-<form action="/add-news" method="post" enctype="multipart/form-data">
+<%- include('../templates/header')-%>
+<form action="/edit-news" method="post">
   <div class="mb-3">
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>
@@ -8,9 +8,9 @@
         class="form-control"
         id="title"
         name="title"
+        value="<%=title %>"
         aria-describedby="emailHelp"
         placeholder="Enter Title"
-        required
       />
     </div>
   </div>
@@ -23,8 +23,9 @@
         name="desc"
         rows="3"
         placeholder="Enter Description"
-        required
-      ></textarea>
+      >
+<%= description %></textarea
+      >
     </div>
   </div>
 
@@ -35,6 +36,7 @@
   <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
+  <input type="hidden" name="id" id="id" value="<%= id %>" />
 </form>
 
-<%- include('templates/footer')-%>
+<%- include('../templates/footer')-%>

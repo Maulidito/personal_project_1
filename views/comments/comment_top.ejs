@@ -8,6 +8,8 @@
   <div class="media-body">
     <div><%- include('comment_content')-%></div>
     <hr />
+    <% for(var i = 0; i < data.nested.length; i++) { %> <%-include('comment',
+    {data:data.nested[i]})-%> <% } %>
 
     <!-- Comments -->
     <!-- <div><%- include('comment')-%></div> -->

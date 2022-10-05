@@ -2,24 +2,21 @@ const { DataTypes, Sequelize } = require("sequelize");
 const { baseModel } = require(".");
 
 module.exports = (sequelize, BaseModel) => {
-  const News = sequelize.define(
-    "news",
+  const User = sequelize.define(
+    "user",
     {
-      title: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.STRING(""),
-      },
-      image: {
-        type: DataTypes.STRING(""),
-        allowNull: true,
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       ...BaseModel,
     },
     sequelize
   );
 
-  return News;
+  return User;
 };

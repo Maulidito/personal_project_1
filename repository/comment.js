@@ -14,6 +14,7 @@ module.exports = class CommentRepository {
   async getAllSpecificNews(newsId) {
     let res = await this.db.findAll({
       where: { news_fk: newsId, DeleteAt: null },
+      raw: true,
     });
 
     return res;
@@ -26,13 +27,27 @@ module.exports = class CommentRepository {
         comment_tree_fk: null,
         DeleteAt: null,
       },
+      raw: true,
+    });
+
+    return res;
+  }
+
+  async getAllNestedComment(newsId, comment_tree_fk) {
+    let res = await this.db.findAll({
+      where: {
+        news_fk: newsId,
+        comment_tree_fk,
+        DeleteAt: null,
+      },
+      raw: true,
     });
 
     return res;
   }
 
   async Add(data) {
-    let res = await this.db.create({ ...data });
+    let res = await this.db.create({ ...data, raw: true });
 
     return res;
   }

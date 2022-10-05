@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
+var userRouter = require("./routes/user");
 
 const db = require("./models");
 
@@ -32,6 +33,7 @@ db.sequelize
 // const repositoryComment = require("./repository/comment");
 
 app.use("/", indexRouter);
+app.use("/user", userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
