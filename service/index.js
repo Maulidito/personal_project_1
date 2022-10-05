@@ -44,14 +44,6 @@ async function GetAllCommentOnSpecificNews(idnews) {
     });
   }
 
-  // await res.forEach(async (element,) => {
-  //   let nested = await RepositoryComment.getAllNestedComment(
-  //     idnews,
-  //     element.id
-  //   );
-  //   commentFull.push({ ...element, nested });
-  // });
-
   return commentFull;
 }
 

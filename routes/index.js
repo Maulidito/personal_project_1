@@ -144,7 +144,7 @@ router.get("/delete-news/:id", auth, async function (req, res, next) {
     }
     let result = await RepositoryNews.Delete(id);
 
-    res.redirect("/success-add-news", { user: req.user });
+    res.redirect("/success-add-news");
     return;
   } catch (error) {
     console.log("ERROR", error);
