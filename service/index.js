@@ -29,11 +29,19 @@ async function GetAllCommentOnSpecificNews(idnews) {
   let commentFull = [];
 
   for (let element = 0; element < res.length; element++) {
+    let user = null;
+    if (res[element].comment_user_fk != null) {
+      user = await RepositoryUser.GetOnebyId(res[element].comment_user_fk);
+    }
     let nested = await RepositoryComment.getAllNestedComment(
       idnews,
       res[element].id
     );
-    commentFull.push({ ...res[element], nested });
+    commentFull.push({
+      ...res[element],
+      nested,
+      email: user != null ? user.email : null,
+    });
   }
 
   // await res.forEach(async (element,) => {

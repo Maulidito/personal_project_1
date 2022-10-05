@@ -18,4 +18,11 @@ module.exports = class NewsRepository {
     });
     return res;
   }
+  async GetOnebyId(id) {
+    let res = await this.db.findOne({
+      where: { id, DeleteAt: null },
+      raw: true,
+    });
+    return res;
+  }
 };

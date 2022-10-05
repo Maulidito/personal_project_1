@@ -12,7 +12,7 @@ async function auth(req, res, next) {
     const { email } = jwt.verify(token, PRIVATE_KEY);
     const user = await RepositoryUser.GetOnebyEmail(email);
     if (user != null) {
-      req.user = { email: user.email };
+      req.user = { email: user.email, id: user.id };
     }
   } catch (error) {}
 

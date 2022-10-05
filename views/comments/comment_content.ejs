@@ -1,5 +1,9 @@
 <div class="mar-btm">
+  <%if(data.email==null){%>
   <h6>Anonymous</h6>
+  <%} else {%>
+  <h6><%=data.email%></h6>
+  <%} %>
 </div>
 <p class="p_comment"><%=data.content%></p>
 <div class="pad-ver">

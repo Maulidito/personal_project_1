@@ -48,7 +48,7 @@ router.get("/view-news/:id", auth, async function (req, res, next) {
   }
 });
 
-router.post("/add-comment/:id", async function (req, res, next) {
+router.post("/add-comment/:id", auth, async function (req, res, next) {
   try {
     const { content, comment_tree_fk } = req.body;
     const { id } = req.params;
@@ -57,6 +57,7 @@ router.post("/add-comment/:id", async function (req, res, next) {
       news_fk: id,
       content,
       comment_tree_fk,
+      comment_user_fk: req.user ? req.user.id : null,
     });
 
     res.redirect(`/view-news/${id}`);
@@ -111,24 +112,29 @@ router.get("/edit-news/:id", auth, async function (req, res, next) {
   } catch (error) {}
 });
 
-router.post("/edit-news", async function (req, res, next) {
-  try {
-    const { title, desc, file, id } = req.body;
+router.post(
+  "/edit-news",
+  upload.single("file"),
+  async function (req, res, next) {
+    try {
+      const { title, desc, id } = req.body;
+      const path = req.file.path.substring(6);
 
-    let result = await RepositoryNews.Update({
-      title,
-      description: desc,
-      image: null,
-      id,
-    });
+      let result = await RepositoryNews.Update({
+        title,
+        description: desc,
+        image: path,
+        id,
+      });
 
-    res.redirect("/success-add-news");
-    return;
-  } catch (error) {
-    console.log("ERROR", error);
-    return;
+      res.redirect("/success-add-news");
+      return;
+    } catch (error) {
+      console.log("ERROR", error);
+      return;
+    }
   }
-});
+);
 
 router.get("/delete-news/:id", auth, async function (req, res, next) {
   try {
